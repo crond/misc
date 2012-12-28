@@ -1,0 +1,34 @@
+PWD=`pwd`
+echo $PWD
+echo ""
+for i in $PWD/*
+do
+	if [ -d $i ]; then
+		clear;
+		echo "Entering..."$i
+		cd $i;
+		if [ ! -f connLog ];then
+			echo "$i: Dont have valid files. Skipping..."
+			sleep 2;	
+			cd ..;
+			continue;
+		fi
+		echo "Connection Details:"
+		echo ""
+		cat connLog | tail -10;		
+		date;
+		sleep 3
+		echo "############################"
+		echo ""
+		echo "Data transfer Details:"
+		echo ""
+		cat genLog | tail -10;
+		date;
+		sleep 3;
+		echo ""
+		echo ""
+		echo ""
+		cd ..;
+	fi
+done	
+echo "Finished...."

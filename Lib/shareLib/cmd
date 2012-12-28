@@ -1,0 +1,11 @@
+#gcc -c -fpic <list of c files>
+gcc -c -fpic lib1.c
+
+#gcc -shared -o <lib_name.so> <list of *.o files>
+gcc -shared -o libtest.so lib1.o 
+
+#ldconfig
+ldconfig
+
+#compile using -l<lib_name_after_the_word_lib> -Wl,-rpath <path_to_lib_file>
+gcc libTest.c -ltest -Wl,-path,$PWD

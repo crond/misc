@@ -1,0 +1,12 @@
+#gcc -c <list of c files>
+gcc -c lib1.c
+gcc -c lib2.c
+
+#ar rc <lib_name.a> <list of *.o files>
+ar rc libtest.a lib1.o lib2.o
+
+#ranlib <lib_name>
+ranlib libtest.a
+
+#compile using -l<lib_name_after_the_word_lib>
+gcc libTest.c -ltest

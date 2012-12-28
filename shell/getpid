@@ -1,0 +1,11 @@
+#bash script to get PID of process passed as argument
+TMPPID=`ps ax | grep 2>/dev/null $1 | grep 2>/dev/null -v grep 2>/dev/null | awk -F" " '{print $1}'`
+WC=`echo $TMPPID | wc -w`
+echo $TMPPID
+echo Total \"$1\" Processes Running:$WC
+
+for ((i=1;i<=$WC;i++))
+do
+	PID=`echo $TMPPID | awk -F" " '{print $('$i')}'`
+	echo PID:$PID
+done

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+iptables -t nat -F PREROUTING  > /dev/null  2>&1 
+
+iptables -t nat -L -n 2> /dev/null

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PPP_IP_ADDR=`/sbin/ifconfig  ppp0 2>/dev/null | /bin/grep "inet addr:" | /usr/bin/awk -F: '{print $2}' | /usr/bin/awk -F" "  '{print $1}'`
+/bin/echo $PPP_IP_ADDR
+exit $?

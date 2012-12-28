@@ -1,0 +1,12 @@
+#!/bin/sh
+
+PPP_IP_ADDR=`/sbin/ifconfig  ppp0 | grep "inet addr:" | awk -F: '{print $2}' | awk -F" "  '{print $1}'`
+echo $PPP_IP_ADDR
+
+iptables -t nat -F POSTROUTING  > /dev/null  2>&1 
+iptables -t nat -A POSTROUTING -o ppp0 -j SNAT --to $PPP_IP_ADDR  > /dev/null 2>&1 
+
+#iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE > /dev/null 2>&1 
+
+
+iptables -t nat -L -n 2> /dev/null

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+LAN_IP_ADDR=`/sbin/ifconfig  eth0 | /bin/grep "inet addr:" | /usr/bin/awk -F: '{print $2}' | /usr/bin/awk -F" "  '{print $1}'`
+/bin/echo $LAN_IP_ADDR
+exit $?
+
