@@ -5,5 +5,6 @@ int main()
 {
     printLib1Name();
     printLib2Name();
+	printf("master");
 }
 
